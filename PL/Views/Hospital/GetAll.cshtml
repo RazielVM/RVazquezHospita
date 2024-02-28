@@ -1,0 +1,38 @@
+﻿@model ML.Hospital
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAll</h1>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Editar</th>
+                <th>Id</th>
+                <th>Hospital</th>
+                <th>Direccion</th>
+                <th>Año Construccion</th>
+                <th>Capacidad</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var regsitros in Model.Hospitales)
+            {
+                <tr>
+                    <td><a href="@Url.Action("Form", "Hospital", new {IdHospital = Model.IdHospital})" class="btn btn-secondary">Editar</a></td>
+                    <td>@Model.IdHospital</td>
+                    <td>@Model.Nombre</td>
+                    <td>@Model.Direccion</td>
+                    <td>@Model.AñoConstruccion</td>
+                    <td>@Model.Capacidad</td>
+                    <td><a href="@Url.Action("Delete", "Hospital", new {IdHospital = Model.IdHospital})" class="btn btn-warning">Eliminar</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
